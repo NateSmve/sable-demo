@@ -8,7 +8,7 @@ interface SeoOptions {
   noIndex?: boolean;
 }
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://sable-demo.up.railway.app";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://sable-demo-new.up.railway.app";
 const siteName = "Sable";
 const defaultImage = "/og-image.png";
 
