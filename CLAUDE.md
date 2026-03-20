@@ -16,4 +16,5 @@ A portfolio demo for SMVE Web Dev (smve.cloud). This is a **fictional** restaura
 ## Rules
 - All content must be clearly labeled as [DEMO]
 - No fake testimonials or fake social proof
-- Color scheme: emerald/stone
+- Color scheme: cream/burgundy/gold (light theme) — uses CSS custom properties in globals.css
+- Typography: Playfair Display (serif) for headings, Geist (sans) for body

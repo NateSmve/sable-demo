@@ -37,8 +37,7 @@ const menu: MenuSection[] = [
       },
       {
         name: "Crispy Artichoke Hearts",
-        description:
-          "Lemon aioli, shaved pecorino, chili flake, herbs",
+        description: "Lemon aioli, shaved pecorino, chili flake, herbs",
         price: "$14",
       },
       {
@@ -77,14 +76,12 @@ const menu: MenuSection[] = [
       },
       {
         name: "Duck Breast",
-        description:
-          "Cherry gastrique, sweet potato gratin, wilted kale",
+        description: "Cherry gastrique, sweet potato gratin, wilted kale",
         price: "$40",
       },
       {
         name: "Handmade Pappardelle",
-        description:
-          "Slow-braised lamb ragù, pecorino romano, fresh herbs",
+        description: "Slow-braised lamb ragù, pecorino romano, fresh herbs",
         price: "$30",
       },
     ],
@@ -114,8 +111,7 @@ const menu: MenuSection[] = [
     items: [
       {
         name: "Dark Chocolate Torte",
-        description:
-          "Raspberry coulis, crème fraîche, edible flowers",
+        description: "Raspberry coulis, crème fraîche, edible flowers",
         price: "$14",
       },
       {
@@ -163,50 +159,70 @@ const menu: MenuSection[] = [
 
 export default function MenuPage() {
   return (
-    <div className="max-w-4xl mx-auto px-6 py-20">
-      <div className="text-center mb-16">
-        <h1 className="text-4xl font-bold text-white mb-4">Our Menu</h1>
-        <p className="text-stone-400 text-lg max-w-xl mx-auto">
-          Seasonal dishes crafted from the finest local ingredients. Our menu
-          evolves with the harvest.
+    <div className="max-w-3xl mx-auto px-6 py-24">
+      {/* Header */}
+      <div className="text-center mb-20">
+        <p className="text-xs tracking-[0.3em] uppercase text-[var(--gold)] mb-3">
+          Seasonal &middot; Local &middot; Fresh
         </p>
-        <p className="text-emerald-500/70 text-xs mt-4">
+        <h1
+          className="text-5xl text-[var(--charcoal)] mb-4"
+          style={{ fontFamily: "var(--font-serif)" }}
+        >
+          Our Menu
+        </h1>
+        <div className="ornament" />
+        <p className="text-[var(--warm-gray)] mt-6 max-w-lg mx-auto leading-relaxed">
+          Seasonal dishes crafted from the finest local ingredients.
+          Our menu evolves with the harvest.
+        </p>
+        <p className="text-[var(--burgundy)]/60 text-xs mt-4">
           Menu items and prices change seasonally. Ask your server about
           today&apos;s specials.
         </p>
       </div>
 
+      {/* Menu Sections */}
       {menu.map((section) => (
-        <div key={section.title} className="mb-16">
-          <h2 className="text-sm font-semibold uppercase tracking-widest text-emerald-400 mb-6 border-b border-stone-800 pb-3">
+        <div key={section.title} className="mb-20">
+          <h2
+            className="text-2xl text-center text-[var(--burgundy)] mb-10"
+            style={{ fontFamily: "var(--font-serif)" }}
+          >
             {section.title}
           </h2>
-          <div className="space-y-6">
+
+          <div className="space-y-5">
             {section.items.map((item) => (
-              <div
-                key={item.name}
-                className="flex justify-between items-start gap-4"
-              >
-                <div className="flex-1">
-                  <p className="font-semibold text-white">{item.name}</p>
-                  <p className="text-sm text-stone-500 mt-1">
-                    {item.description}
+              <div key={item.name}>
+                <div className="flex items-baseline">
+                  <p className="font-medium text-[var(--charcoal)]">
+                    {item.name}
                   </p>
+                  <span className="menu-dots" />
+                  <span
+                    className="text-[var(--burgundy)] font-medium whitespace-nowrap"
+                    style={{ fontFamily: "var(--font-serif)" }}
+                  >
+                    {item.price}
+                  </span>
                 </div>
-                <span className="text-emerald-400 font-semibold text-sm whitespace-nowrap pt-0.5">
-                  {item.price}
-                </span>
+                <p className="text-sm text-[var(--warm-gray-light)] mt-1 ml-0">
+                  {item.description}
+                </p>
               </div>
             ))}
           </div>
         </div>
       ))}
 
-      <div className="text-center pt-8 border-t border-stone-800">
-        <p className="text-stone-500 text-sm mb-2">
+      {/* Footer note */}
+      <div className="text-center pt-8 border-t border-[var(--cream-dark)]">
+        <div className="ornament mb-6" />
+        <p className="text-[var(--warm-gray)] text-sm mb-2">
           Please inform your server of any allergies or dietary restrictions.
         </p>
-        <p className="text-stone-600 text-xs">
+        <p className="text-[var(--warm-gray-light)] text-xs">
           A 20% gratuity is added for parties of 6 or more.
         </p>
       </div>

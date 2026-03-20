@@ -2,6 +2,17 @@
 
 :root {
   --font-sans: var(--font-geist-sans, system-ui, sans-serif);
+  --font-serif: var(--font-playfair, Georgia, "Times New Roman", serif);
+  --cream: #FBF7F0;
+  --cream-dark: #F0E8DA;
+  --burgundy: #722F37;
+  --burgundy-light: #8B3A42;
+  --burgundy-dark: #5A252C;
+  --gold: #B8860B;
+  --gold-light: #D4A843;
+  --charcoal: #2C2C2C;
+  --warm-gray: #6B6460;
+  --warm-gray-light: #A39E98;
 }
 
 html {
@@ -11,9 +22,60 @@ html {
 body {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
+  background-color: var(--cream);
+  color: var(--charcoal);
 }
 
 *:focus-visible {
-  outline: 2px solid theme(colors.emerald.500);
+  outline: 2px solid var(--burgundy);
   outline-offset: 2px;
+}
+
+/* Classic menu dotted leader line */
+.menu-dots {
+  flex: 1;
+  border-bottom: 1px dotted var(--warm-gray-light);
+  margin: 0 12px;
+  position: relative;
+  top: -4px;
+}
+
+/* Decorative divider */
+.ornament::before {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 1px;
+  background: var(--gold);
+  margin: 0 auto 12px;
+}
+
+.ornament::after {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 1px;
+  background: var(--gold);
+  margin: 8px auto 0;
+}
+
+/* Elegant underline animation */
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 0;
+  height: 1px;
+  background: var(--burgundy);
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+  left: 0;
 }

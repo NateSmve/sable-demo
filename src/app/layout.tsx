@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
+import { Playfair_Display } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/Nav";
 import DemoBanner from "@/components/DemoBanner";
@@ -8,6 +9,12 @@ import { buildMeta } from "@/lib/seo";
 const geist = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+});
+
+const playfair = Playfair_Display({
+  variable: "--font-playfair",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = buildMeta({
@@ -24,65 +31,54 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geist.variable} font-sans antialiased bg-stone-950 text-stone-100`}
+        className={`${geist.variable} ${playfair.variable} font-sans antialiased`}
       >
         <DemoBanner />
         <Nav />
         <main>{children}</main>
 
-        <footer className="border-t border-stone-800/50 py-12 mt-24">
-          <div className="max-w-6xl mx-auto px-6">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-              <div>
-                <p className="font-bold text-lg tracking-[0.15em] uppercase text-emerald-100 mb-3">
-                  Sable
-                </p>
-                <p className="text-sm text-stone-400 leading-relaxed">
-                  Modern farm-to-table dining.
-                  <br />
-                  Seasonal. Local. Unforgettable.
-                </p>
-              </div>
-              <div>
-                <p className="text-sm font-semibold text-stone-300 mb-3">Hours</p>
-                <div className="flex flex-col gap-1 text-sm text-stone-400">
-                  <p>Tuesday – Thursday: 5 PM – 10 PM</p>
-                  <p>Friday – Saturday: 5 PM – 11 PM</p>
-                  <p>Sunday Brunch: 10 AM – 2 PM</p>
-                  <p>Monday: Closed</p>
-                </div>
-              </div>
-              <div>
-                <p className="text-sm font-semibold text-stone-300 mb-3">Quick Links</p>
-                <div className="flex flex-col gap-2 text-sm text-stone-400">
-                  <a
-                    href="/menu"
-                    className="underline decoration-stone-600 hover:text-emerald-200 hover:decoration-emerald-400 transition-colors"
-                  >
-                    Menu
-                  </a>
-                  <a
-                    href="/#story"
-                    className="underline decoration-stone-600 hover:text-emerald-200 hover:decoration-emerald-400 transition-colors"
-                  >
-                    Our Story
-                  </a>
-                  <a
-                    href="/contact"
-                    className="underline decoration-stone-600 hover:text-emerald-200 hover:decoration-emerald-400 transition-colors"
-                  >
-                    Reserve a Table
-                  </a>
-                </div>
-              </div>
+        <footer className="border-t border-[var(--cream-dark)] py-16 mt-20">
+          <div className="max-w-4xl mx-auto px-6 text-center">
+            <p
+              className="text-3xl tracking-wide text-[var(--burgundy)] mb-4"
+              style={{ fontFamily: "var(--font-serif)" }}
+            >
+              Sable
+            </p>
+            <p className="text-sm text-[var(--warm-gray)] mb-6 max-w-md mx-auto leading-relaxed">
+              Modern farm-to-table dining. Seasonal menus crafted from locally
+              sourced ingredients in the heart of Portland.
+            </p>
+            <div className="flex flex-wrap justify-center gap-6 text-sm text-[var(--warm-gray)] mb-8">
+              <a
+                href="/menu"
+                className="hover:text-[var(--burgundy)] transition-colors"
+              >
+                Menu
+              </a>
+              <span className="text-[var(--cream-dark)]">|</span>
+              <a
+                href="/#story"
+                className="hover:text-[var(--burgundy)] transition-colors"
+              >
+                Our Story
+              </a>
+              <span className="text-[var(--cream-dark)]">|</span>
+              <a
+                href="/contact"
+                className="hover:text-[var(--burgundy)] transition-colors"
+              >
+                Reservations
+              </a>
             </div>
-            <div className="border-t border-stone-800/50 pt-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-stone-500">
-              <p>© {new Date().getFullYear()} Sable. All rights reserved.</p>
+            <div className="ornament mb-6" />
+            <div className="text-xs text-[var(--warm-gray-light)] space-y-1">
+              <p>&copy; {new Date().getFullYear()} Sable. All rights reserved.</p>
               <p>
                 [DEMO] Built by{" "}
                 <a
                   href="https://smve.cloud"
-                  className="text-emerald-500/70 underline hover:text-emerald-400 transition-colors"
+                  className="text-[var(--burgundy)] underline hover:text-[var(--burgundy-light)] transition-colors"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
